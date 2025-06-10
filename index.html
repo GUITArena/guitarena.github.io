@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="GUI Testing Arena: A Unified Benchmark for Advancing Autonomous GUI Testing Agent">
+  <meta property="og:title"
+    content="GUI Testing Arena: A Unified Benchmark for Advancing Autonomous GUI Testing Agent" />
+  <meta property="og:description"
+    content="A unified benchmark for evaluating and improving multimodal large language models for GUI testing tasks." />
+  <meta property="og:url" content="https://gui-testing-arena.github.io" />
+  <meta property="og:image" content="static/image/banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="GUI Testing Arena">
+  <meta name="twitter:description"
+    content="A unified benchmark for evaluating and improving multimodal large language models for GUI testing tasks.">
+  <meta name="twitter:image" content="static/images/banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords"
+    content="GUI Testing, Autonomous Testing, LLM, MLLM, Multimodal, Benchmark, Mobile Applications">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>GUI Testing Arena: A Unified Benchmark for Advancing Autonomous GUI Testing Agent</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,700|Noto+Sans:400,700|Castoro:400,700"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    :root {
+      --primary-color: #4a67b7;
+      --secondary-color: #8ba3eb;
+      --accent-color: #ff6b6b;
+      --light-bg: #f5f7ff;
+      --dark-bg: #2c3e50;
+      --text-color: #333;
+    }
+
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .hero.is-primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    }
+
+    .hero.is-light {
+      background-color: var(--light-bg);
+    }
+
+    .section-title {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--accent-color);
+    }
+
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .result-table {
+      width: 100%;
+      margin: 1.5rem 0;
+      border-collapse: collapse;
+    }
+
+    .result-table th {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .result-table td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .result-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .result-table tr.highlight {
+      background-color: rgba(138, 201, 255, 0.2);
+    }
+
+    .button.is-primary {
+      background-color: var(--primary-color);
+    }
+
+    .button.is-primary:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .tag.is-improvement {
+      background-color: #48c774;
+      color: white;
+    }
+
+    .tag.is-decline {
+      background-color: #ff3860;
+      color: white;
+    }
+
+    .tag.is-neutral {
+      background-color: #ffdd57;
+      color: #363636;
+    }
+
+    .key-findings {
+      background-color: rgba(74, 103, 183, 0.1);
+      border-left: 4px solid var(--primary-color);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .key-findings h4 {
+      color: var(--primary-color);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .figure-caption {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #666;
+    }
+
+    .chart-container {
+      position: relative;
+      margin: 2rem auto;
+      height: 400px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .footer {
+      background-color: var(--dark-bg);
+      color: white;
+    }
+
+    .footer a {
+      color: var(--secondary-color);
+    }
+
+    @media screen and (max-width: 768px) {
+      .result-table {
+        font-size: 0.85rem;
+      }
+
+      .result-table th,
+      .result-table td {
+        padding: 8px 5px;
+      }
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">GUI Testing Arena</h1>
+            <h2 class="subtitle is-3">A Unified Benchmark for Advancing Autonomous GUI Testing Agent</h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Anonymous Author(s)
+              </span>
+            </div>
+
+            <div class="column has-text-centered mt-4">
+              <div class="publication-links">
+                <!-- Dataset -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/UITest4mb/GTArena-UI-Defects" target="_blank"
+                    class="external-link button is-normal is-rounded is-light">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-light">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- Paper
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-light">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN FIGURE-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <figure class="image">
+          <img src="static/images/paper_figure1.png" alt="GTArena Workflow" />
+          <figcaption class="has-text-centered mt-3 mb-5">
+            <strong>The Workflow for Autonomous GUI Testing (GTArena).</strong> We provide a standardized and
+            reproducible testing
+            framework, enabling fair comparison of different multimodal large language models.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered section-title">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Recent advances in foundation models, particularly large multimodal language models (MLLMs), have opened
+              new possibilities for automating complex tasks involving diverse data types. However, their application in
+              graphical user interface (GUI) understanding and reasoning remains underexplored. To comprehensively
+              evaluate their capability in this domain, we introduce GTArena, a unified and extensible benchmark
+              designed to evaluate autonomous GUI testing agents built upon MLLMs.
+            </p>
+            <p>
+              GTArena formalizes the testing process into three core components:
+              test intention generation, test task execution, and GUI defect detection, each targeting different aspects
+              of multimodal understanding and interaction. To support comprehensive evaluation, we constructed a
+              large-scale benchmark
+              dataset comprising 1,500+ labeled GUI defects across 300+ mobile applications, including real-world apps,
+              code-injected defect cases, and synthetically generated GUI anomalies, which cover both display and
+              interaction issues under diverse app environments.
+            </p>
+            <p>
+              Benchmark results reveal that while closed-source MLLMs achieve up to 37.0% test intention coverage and
+              20.45% task success rate,
+              open-source models lag significantly, with GUI defect recall often below 10%, demonstrating their
+              limited sensitivity to fine-grained GUI inconsistencies. To address this, we introduce a reward-guided
+              fine-tuning method based on Group Relative Policy Optimization (GRPO), which leverages reward signals to
+              enhance model sensitivity
+              to GUI defects. Our findings shed light on the limitations of current MLLMs in GUI understanding and
+              provide actionable guidance for building more robust
+              and domain-adapted agents.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dataset -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered section-title">Dataset</h2>
+
+      <div class="box mt-5">
+        <figure class="image">
+          <img src="static/images/paper_figure2.png" alt="Dataset Composition" />
+          <figcaption class="figure-caption mt-2">
+            <strong>Composition of Datasets in GTArena for Test Intention, Test Execution, and GUI Defect
+              Detection.</strong>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="content mt-5">
+        <p class="is-size-5">
+          We present examples of various constructed GUI defects, demonstrating the feasibility of synthesizing defects
+          through post-processing.
+          It highlights a feasible approach to building large-scale GUI defect datasets, including both display and
+          interaction defects.
+        </p>
+      </div>
+
+      <div class="box mt-4">
+        <figure class="image">
+          <img src="static/images/synthetic_data.png" alt="Synthetic GUI Defects" />
+          <figcaption class="figure-caption mt-2">
+            <strong>Examples of Constructed Synthetic GUI Defects.</strong>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="content mt-5">
+        <p class="is-size-5">
+          To further demonstrate the usability of our method, we present examples of both real-world and synthetic GUI
+          defects.
+          Human evaluation (N=5) shows annotators achieved only 68.3% accuracy in distinguishing synthetic from real
+          defects,
+          confirming the realism and effectiveness of our synthetic dataset.
+        </p>
+      </div>
+
+      <div class="box mt-4">
+        <figure class="image">
+          <img src="static/images/real-world vs synthetic data.png" alt="Real vs Synthetic Data" />
+          <figcaption class="figure-caption mt-2">
+            <strong>Examples of real-world vs synthetic GUI defects.</strong>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- Results -->
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered section-title">Results</h2>
+
+        <div class="content">
+          <h3 class="title is-4 mt-5">Baseline Autonomous GUI Testing</h3>
+
+          <div class="table-container">
+            <table class="table is-bordered is-narrow is-fullwidth">
+              <thead>
+                <tr>
+                  <th rowspan="2" class="has-text-centered" style="vertical-align: middle; background-color: #f5f7ff;">
+                    Model</th>
+                  <th class="has-text-centered" style="border-bottom: 1px solid #dbdbdb; background-color: #f5f7ff;">
+                    Test
+                    Intention</th>
+                  <th colspan="3" class="has-text-centered"
+                    style="border-bottom: 1px solid #dbdbdb; background-color: #f5f7ff;">Test Task Execution</th>
+                  <th colspan="3" class="has-text-centered"
+                    style="border-bottom: 1px solid #dbdbdb; background-color: #f5f7ff;">GUI Defect Detection</th>
+                </tr>
+                <tr style="background-color: #f5f7ff;">
+                  <th class="has-text-centered">Coverage (%)</th>
+                  <th class="has-text-centered">TM (%)</th>
+                  <th class="has-text-centered">EM (%)</th>
+                  <th class="has-text-centered">SR (%)</th>
+                  <th class="has-text-centered">Accuracy (%)</th>
+                  <th class="has-text-centered">Recall-D (%)</th>
+                  <th class="has-text-centered">Recall-N (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>LLaVA (LLaMA3-8B)</td>
+                  <td class="has-text-centered">17.12</td>
+                  <td class="has-text-centered">31.70</td>
+                  <td class="has-text-centered">4.40</td>
+                  <td class="has-text-centered">3.28</td>
+                  <td class="has-text-centered">24.90</td>
+                  <td class="has-text-centered">6.00</td>
+                  <td class="has-text-centered">69.00</td>
+                </tr>
+                <tr>
+                  <td>Qwen2-VL-7B</td>
+                  <td class="has-text-centered">20.37</td>
+                  <td class="has-text-centered">35.40</td>
+                  <td class="has-text-centered">13.20</td>
+                  <td class="has-text-centered">11.73</td>
+                  <td class="has-text-centered">30.10</td>
+                  <td class="has-text-centered">0.14</td>
+                  <td class="has-text-centered"><strong>100.00</strong></td>
+                </tr>
+                <tr>
+                  <td>InternVL2-8B</td>
+                  <td class="has-text-centered">2.70</td>
+                  <td class="has-text-centered">38.00</td>
+                  <td class="has-text-centered">5.00</td>
+                  <td class="has-text-centered">4.16</td>
+                  <td class="has-text-centered">29.10</td>
+                  <td class="has-text-centered">2.00</td>
+                  <td class="has-text-centered">92.33</td>
+                </tr>
+                <tr>
+                  <td>InternVL2-40B</td>
+                  <td class="has-text-centered">31.01</td>
+                  <td class="has-text-centered">42.10</td>
+                  <td class="has-text-centered">7.90</td>
+                  <td class="has-text-centered">6.31</td>
+                  <td class="has-text-centered"><strong>34.00</strong></td>
+                  <td class="has-text-centered">6.43</td>
+                  <td class="has-text-centered">98.33</td>
+                </tr>
+                <tr>
+                  <td>Qwen2-VL-72B</td>
+                  <td class="has-text-centered">24.64</td>
+                  <td class="has-text-centered">46.80</td>
+                  <td class="has-text-centered">17.30</td>
+                  <td class="has-text-centered">15.13</td>
+                  <td class="has-text-centered">30.50</td>
+                  <td class="has-text-centered">1.14</td>
+                  <td class="has-text-centered">99.00</td>
+                </tr>
+                <tr>
+                  <td>Claude (Sonnet 3.5)</td>
+                  <td class="has-text-centered">36.18</td>
+                  <td class="has-text-centered"><strong>48.88</strong></td>
+                  <td class="has-text-centered"><strong>21.50</strong></td>
+                  <td class="has-text-centered"><strong>20.45</strong></td>
+                  <td class="has-text-centered">7.30</td>
+                  <td class="has-text-centered">10.29</td>
+                  <td class="has-text-centered">0.33</td>
+                </tr>
+                <tr>
+                  <td>GPT-4o (2024-02-01)</td>
+                  <td class="has-text-centered"><strong>37.01</strong></td>
+                  <td class="has-text-centered">41.60</td>
+                  <td class="has-text-centered">19.40</td>
+                  <td class="has-text-centered">16.14</td>
+                  <td class="has-text-centered">33.80</td>
+                  <td class="has-text-centered"><strong>14.00</strong></td>
+                  <td class="has-text-centered">80.00</td>
+                </tr>
+                <tr style="background-color: rgba(138, 201, 255, 0.1);">
+                  <td><strong>Human</strong></td>
+                  <td class="has-text-centered">--</td>
+                  <td class="has-text-centered">94.15</td>
+                  <td class="has-text-centered">92.00</td>
+                  <td class="has-text-centered">90.00</td>
+                  <td class="has-text-centered">80.19</td>
+                  <td class="has-text-centered">84.55</td>
+                  <td class="has-text-centered">76.75</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="has-text-centered is-size-7 mt-2">
+              <strong>Table 1:</strong> Comparison of Different Multimodal Large Language Models as Agents for
+              Autonomous
+              GUI Testing.
+            </p>
+          </div>
+
+          <div class="key-findings mt-5"
+            style="background-color: rgba(74, 103, 183, 0.1); border-left: 4px solid #4a67b7; padding: 1.5rem; border-radius: 0 8px 8px 0;">
+            <h4 style="color: #4a67b7; font-weight: 700; margin-bottom: 0.75rem;">Key Findings:</h4>
+            <ul>
+              <li>In <strong>test intention generation</strong>, GPT-4o and Claude achieve the highest coverage (above
+                36%), with InternVL2-40B leading open-source models at 31.01%.</li>
+              <li>For <strong>test task execution</strong>, Claude consistently achieves top performance across all
+                metrics (TM, EM, SR), with GPT-4o following closely.</li>
+              <li>In <strong>GUI defect detection</strong>, GPT-4o achieves the highest defect recall (14.00%) with
+                balanced accuracy, while open-source models struggle with defect sensitivity.</li>
+              <li>A clear performance gap exists between commercial and open-source MLLMs, with GUI defect detection
+                emerging as the most critical bottleneck.</li>
+            </ul>
+          </div>
+
+          <h3 class="title is-4 mt-5">Effect of Instructions on Test Task Execution</h3>
+
+          <div class="table-container">
+            <table class="table is-bordered is-narrow is-fullwidth">
+              <thead>
+                <tr style="background-color: #f5f7ff;">
+                  <th class="has-text-centered">Instruction Type</th>
+                  <th class="has-text-centered">GPT-4o</th>
+                  <th class="has-text-centered">LLaVA</th>
+                  <th class="has-text-centered">Qwen2-VL</th>
+                  <th class="has-text-centered">Avg.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Test Intention</td>
+                  <td class="has-text-centered">16.14</td>
+                  <td class="has-text-centered">3.28</td>
+                  <td class="has-text-centered">11.73</td>
+                  <td class="has-text-centered">10.38</td>
+                </tr>
+                <tr>
+                  <td>Test Steps</td>
+                  <td class="has-text-centered">16.39</td>
+                  <td class="has-text-centered">6.81</td>
+                  <td class="has-text-centered">19.80</td>
+                  <td class="has-text-centered">14.33</td>
+                </tr>
+                <tr>
+                  <td>Δ (Steps - Intention)</td>
+                  <td class="has-text-centered"><span class="tag is-improvement"
+                      style="background-color: #48c774; color: white;">+0.25</span></td>
+                  <td class="has-text-centered"><span class="tag is-improvement"
+                      style="background-color: #48c774; color: white;">+3.53</span></td>
+                  <td class="has-text-centered"><span class="tag is-improvement"
+                      style="background-color: #48c774; color: white;">+8.07</span></td>
+                  <td class="has-text-centered"><span class="tag is-improvement"
+                      style="background-color: #48c774; color: white;">+3.95</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="has-text-centered is-size-7 mt-2">
+              <strong>Table 2:</strong> SR (%) on Test Task Execution using Different Instructions. Each row shows
+              performance under different prompts.
+            </p>
+          </div>
+
+          <div class="notification mt-4"
+            style="background-color: rgba(50, 115, 220, 0.1); border-left: 4px solid #3273dc; padding: 1.5rem; border-radius: 0 8px 8px 0;">
+            <p class="has-text-weight-semibold">
+              <strong>Key Observation:</strong> Both LLaVA and Qwen2-VL showed significant performance improvements when
+              given test steps as instructions.
+              However, GPT-4o showed minimal performance change, suggesting its limitation in test task execution stems
+              from GUI interface
+              complexity rather than intention interpretation.
+            </p>
+          </div>
+
+          <h3 class="title is-4 mt-5">Enhancing GUI Defect Detection via Reward-Guided Fine-Tuning</h3>
+
+          <div class="columns is-centered">
+            <div class="column is-two-thirds">
+              <div class="table-container">
+                <table class="table is-bordered is-narrow is-fullwidth">
+                  <thead>
+                    <tr style="background-color: #f5f7ff;">
+                      <th class="has-text-centered">Model</th>
+                      <th class="has-text-centered">Accuracy</th>
+                      <th class="has-text-centered">Recall-D</th>
+                      <th class="has-text-centered">Recall-N</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Qwen2.5-VL</td>
+                      <td class="has-text-centered">25.42</td>
+                      <td class="has-text-centered">5.80</td>
+                      <td class="has-text-centered"><strong>94.87</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Qwen2.5-VL + SFT</td>
+                      <td class="has-text-centered">28.81</td>
+                      <td class="has-text-centered"><strong>36.96</strong></td>
+                      <td class="has-text-centered">0</td>
+                    </tr>
+                    <tr>
+                      <td>Qwen2.5-VL + GRPO</td>
+                      <td class="has-text-centered"><strong>32.30</strong></td>
+                      <td class="has-text-centered">25.36</td>
+                      <td class="has-text-centered">56.41</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="has-text-centered is-size-7 mt-2">
+                  <strong>Table 3:</strong> GUI defect detection comparison on Qwen2.5-VL.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content mt-4">
+            <p>
+              We compare the defect detection performance of Qwen2.5-VL under three settings: the original model,
+              supervised fine-tuning (SFT), and GRPO-based reward-guided fine-tuning.
+            </p>
+            <ul>
+              <li>The <strong>base model</strong> tends to predict "no defect" and misses most actual issues</li>
+              <li><strong>SFT</strong> significantly improves defect recall, but overfits to defect patterns and fails
+                to
+                recognize clean GUI states</li>
+              <li>The <strong>GRPO-tuned model</strong> achieves a better trade-off between sensitivity and specificity,
+                with improved overall accuracy while maintaining moderate recall on both defective and non-defective
+                samples</li>
+            </ul>
+            <p>
+              This balance indicates that GRPO encourages more robust, semantics-aware reasoning by leveraging
+              structured
+              rewards
+              instead of direct label supervision. In practical settings where most screens are defect-free, such
+              balanced
+              behavior
+              is essential for reliable deployment.
+            </p>
+          </div>
+
+          <h3 class="title is-4 mt-5">Analysis on General Capability of Models</h3>
+
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="table-container">
+                <table class="table is-bordered is-narrow is-fullwidth">
+                  <thead>
+                    <tr style="background-color: #f5f7ff;">
+                      <th class="has-text-centered"></th>
+                      <th class="has-text-centered">rec</th>
+                      <th class="has-text-centered">ocr</th>
+                      <th class="has-text-centered">know</th>
+                      <th class="has-text-centered">gen</th>
+                      <th class="has-text-centered">spat</th>
+                      <th class="has-text-centered">math</th>
+                      <th class="has-text-centered">total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Qwen2-VL</td>
+                      <td class="has-text-centered">62.4</td>
+                      <td class="has-text-centered">70.6</td>
+                      <td class="has-text-centered">51.8</td>
+                      <td class="has-text-centered">53.4</td>
+                      <td class="has-text-centered">66.7</td>
+                      <td class="has-text-centered">65.0</td>
+                      <td class="has-text-centered">65.7</td>
+                    </tr>
+                    <tr>
+                      <td>Qwen2-VL<sub>sft</sub></td>
+                      <td class="has-text-centered">61.9</td>
+                      <td class="has-text-centered">71.4</td>
+                      <td class="has-text-centered">50.0</td>
+                      <td class="has-text-centered">53.0</td>
+                      <td class="has-text-centered">66.4</td>
+                      <td class="has-text-centered">65.0</td>
+                      <td class="has-text-centered">65.1</td>
+                    </tr>
+                    <tr>
+                      <td>Δ<sub>SFT-Original</sub></td>
+                      <td class="has-text-centered"><span class="tag is-decline"
+                          style="background-color: #ff3860; color: white;">-0.5</span></td>
+                      <td class="has-text-centered"><span class="tag is-improvement"
+                          style="background-color: #48c774; color: white;">+0.8</span></td>
+                      <td class="has-text-centered"><span class="tag is-decline"
+                          style="background-color: #ff3860; color: white;">-1.8</span></td>
+                      <td class="has-text-centered"><span class="tag is-decline"
+                          style="background-color: #ff3860; color: white;">-0.4</span></td>
+                      <td class="has-text-centered"><span class="tag is-decline"
+                          style="background-color: #ff3860; color: white;">-0.3</span></td>
+                      <td class="has-text-centered"><span class="tag is-neutral"
+                          style="background-color: #ffdd57; color: #363636;">0</span></td>
+                      <td class="has-text-centered"><span class="tag is-decline"
+                          style="background-color: #ff3860; color: white;">-0.6</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="has-text-centered is-size-7 mt-2">
+                  <strong>Table 4:</strong> Performance changes in various capabilities after domain adaptation
+                  (reported
+                  in percentages).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="key-findings mt-4"
+            style="background-color: rgba(74, 103, 183, 0.1); border-left: 4px solid #4a67b7; padding: 1.5rem; border-radius: 0 8px 8px 0;">
+            <h4 style="color: #4a67b7; font-weight: 700; margin-bottom: 0.75rem;">Capability Dissociation Analysis:</h4>
+            <p>
+              To better understand which general capabilities are most relevant to GUI testing, we fine-tuned Qwen2-VL
+              on
+              our GUI defect dataset
+              and evaluated the model's pre- and post-finetuning performance on the MM-Vet benchmark. This comparison
+              reveals a distinct pattern
+              of domain-specific capability dissociation:
+            </p>
+            <ul>
+              <li><strong>Enhanced OCR (<span style="color: #48c774;">+0.8%</span>)</strong> suggests text localization
+                is
+                fundamental to GUI understanding—likely because visual defects often manifest as text rendering
+                anomalies
+              </li>
+              <li><strong>Minimal spatial reasoning loss (<span style="color: #ff3860;">-0.3%</span>)</strong> implies
+                geometric relationship modeling remains crucial for defect detection</li>
+              <li><strong>Significant knowledge degradation (<span style="color: #ff3860;">-1.8%</span>)</strong>
+                reveals
+                that domain-specific supervision overwrites rather than supplements world knowledge, indicating its
+                dispensability</li>
+            </ul>
+            <p>
+              These findings suggest that GUI testing relies more on <em>visuoperceptual grounding</em> - such as
+              spatial
+              structure and UI text —
+              than on general world knowledge or abstract reasoning.
+            </p>
+          </div>
+
+          <div class="chart-container mt-5">
+            <canvas id="capabilityChart"></canvas>
+          </div>
+        </div>
+
+        <style>
+          /* Table styling that combines academic layout with original visual design */
+          .table-container {
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+          }
+
+          .table {
+            font-size: 0.95rem;
+            border-collapse: collapse;
+            width: 100%;
+            box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+          }
+
+          .table th {
+            font-weight: 600;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0.75em;
+            border: 1px solid #dbdbdb;
+          }
+
+          .table td {
+            padding: 0.65em;
+            vertical-align: middle;
+            border: 1px solid #dbdbdb;
+          }
+
+          .table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+          }
+
+          .table tr:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+          }
+
+          .key-findings {
+            margin: 1.5rem 0;
+          }
+
+          .tag {
+            border-radius: 4px;
+            padding: 0.25em 0.5em;
+            font-size: 0.85em;
+            font-weight: bold;
+            display: inline-block;
+          }
+
+          .chart-container {
+            position: relative;
+            margin: 2rem auto;
+            height: 400px;
+            width: 100%;
+            max-width: 800px;
+          }
+        </style>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Chart for capability analysis
+            const ctx = document.getElementById('capabilityChart').getContext('2d');
+            const capabilityChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: ['Recognition', 'OCR', 'Knowledge', 'Generation', 'Spatial', 'Math', 'Total'],
+                datasets: [{
+                  label: 'Capability Change After Fine-tuning',
+                  data: [-0.5, 0.8, -1.8, -0.4, -0.3, 0, -0.6],
+                  backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                  ],
+                  borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(255, 99, 132, 1)'
+                  ],
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                responsive: true,
+                plugins: {
+                  title: {
+                    display: true,
+                    text: 'Capability Changes After Domain Adaptation',
+                    font: {
+                      size: 16
+                    }
+                  },
+                  legend: {
+                    display: false
+                  },
+                  tooltip: {
+                    callbacks: {
+                      label: function (context) {
+                        let label = context.dataset.label || '';
+                        if (label) {
+                          label += ': ';
+                        }
+                        if (context.parsed.y !== null) {
+                          label += context.parsed.y > 0 ? '+' + context.parsed.y + '%' : context.parsed.y + '%';
+                        }
+                        return label;
+                      }
+                    }
+                  }
+                },
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: 'Percentage Change (%)'
+                    },
+                    grid: {
+                      color: 'rgba(0, 0, 0, 0.1)'
+                    }
+                  },
+                  x: {
+                    title: {
+                      display: true,
+                      text: 'Capability'
+                    },
+                    grid: {
+                      display: false
+                    }
+                  }
+                }
+              }
+            });
+
+            // Activate any carousels
+            bulmaCarousel.attach();
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Demo Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered section-title">Interactive Demo</h2>
+    </div>
+  </section>
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-3 section-title">BibTeX</h2>
+      <pre><code>Anonymous
+</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the
+              footer.
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"
+                target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Chart for capability analysis
+      const ctx = document.getElementById('capabilityChart').getContext('2d');
+      const capabilityChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Recognition', 'OCR', 'Knowledge', 'Generation', 'Spatial', 'Math', 'Total'],
+          datasets: [{
+            label: 'Capability Change After Fine-tuning',
+            data: [-0.5, 0.8, -1.8, -0.4, -0.3, 0, -0.6],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(255, 99, 132, 1)',
+              'rgba(255, 99, 132, 1)',
+              'rgba(255, 99, 132, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'Capability Changes After Domain Adaptation',
+              font: {
+                size: 16
+              }
+            },
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  let label = context.dataset.label || '';
+                  if (label) {
+                    label += ': ';
+                  }
+                  if (context.parsed.y !== null) {
+                    label += context.parsed.y > 0 ? '+' + context.parsed.y + '%' : context.parsed.y + '%';
+                  }
+                  return label;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Percentage Change (%)'
+              },
+              grid: {
+                color: 'rgba(0, 0, 0, 0.1)'
+              }
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Capability'
+              },
+              grid: {
+                display: false
+              }
+            }
+          }
+        }
+      });
+
+      // Activate any carousels
+      bulmaCarousel.attach();
+    });
+  </script>
+</body>
+
+</html>
